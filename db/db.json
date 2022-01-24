@@ -1,6 +1,18 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Take wife to work",
+        "text": "Mondays and Fridays, 3pm",
+        "id": "0"
+    },
+    {
+        "title": "Pickup Mom from the airport",
+        "text": "Feb 25th, 2022 @ 2pm",
+        "id": "1"
+    },
+    {
+        "title": "Vet Appointment",
+        "text": "Buddy gets teeth cleaned at 9am next tuesday",
+        "id": "2"
     }
+    
 ]
