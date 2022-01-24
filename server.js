@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const uuid = require('uuid');
+const notes = require('./db/db.json');
+const res = require('express/lib/response');
 
 
 const app = express();
@@ -9,6 +12,21 @@ const PORT = 3005;
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//get api from db.json
+app.get('/api/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './db/db.json'))
+});
+
+//POST to add new notes
+app.post('/api/notes', (req, res) => {
+    const notes = JSON.parse(fs.readFileSync('./db/db.json'));
+    const newNote = req.body;
+    newNote.id = uuid.v4();
+    notes.push(newNote);
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes))
+    res.json(notes);
+});s
 
 
 //HTML calls
